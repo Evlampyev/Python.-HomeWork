@@ -6,8 +6,8 @@
 
 day = int(input("Введите день недели "))
 if 0 < day < 6:
-    print("нет")
+    print("Нет")
 elif 8 > day > 6:
-    print("да")
+    print("Да")
 else:
-    print("неверный ввод")
+    print("Неверный ввод")
