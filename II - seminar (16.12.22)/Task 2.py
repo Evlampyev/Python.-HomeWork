@@ -3,8 +3,8 @@
 # Для n = 15: Ответ: 3
 # Для n = 35: Ответ: 5
 
-N = int(input())
+N = int(input("Введите значение N: "))
 divider = 2
 while N % divider != 0:
     divider += 1
-print(divider)
+print(f'Наименьший делитель числа {N} = {divider}')

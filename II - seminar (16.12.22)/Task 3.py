@@ -5,7 +5,7 @@
 # [-4, -3, -2, -1, 0, 1, 2, 3,4]
 from random import *
 
-N = int(input())
+N = int(input("Введите значение N: "))
 array = [randint(-N, N) for i in range(2 * N + 1)]
 print(array)
 index = []
