@@ -3,3 +3,11 @@
 # - 45 -> 101101
 # - 3 -> 11
 # - 2 -> 10
+
+N10 = int(input("Введите число "))
+Not2 = ''
+Copy_N10 = N10
+while Copy_N10 > 0:
+    Not2 += str(Copy_N10 % 2)
+    Copy_N10 = Copy_N10 // 2
+print(int(Not2[::-1]))
