@@ -4,7 +4,7 @@
 
 import math
 
-N = int(input("Введите заданную точность "))
+N = int(input("Введите количество чисел после запятой "))
 s = ''
 P = math.pi
 while N+1 > 0:
