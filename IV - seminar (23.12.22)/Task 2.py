@@ -12,6 +12,6 @@ def SimpleMultiplicities(n):
     return lst
 
 
-N = int(input("Введите число, которое необходимо разложить на простые множетиле "))
+N = int(input("Введите число, которое необходимо разложить на простые множетили "))
 myLst = SimpleMultiplicities(N)
 print(*myLst, sep="*")
