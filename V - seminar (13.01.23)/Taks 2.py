@@ -11,9 +11,47 @@ def InputPole(key: int = 3):
 
 
 def PrintPole(pol, key: int = 3):
+    print("   ", 0, 1, 2)
+    print("   ", "|", "|", "|")
+    a = 0
     for i in pol:
-        print(' '.join(list(map(str, i))))
+        print(a, '-', ' '.join(list(map(str, i))))
+        a += 1
+
+
+def СheckingWinner(pol, key: int = 3):
+    win = str()
+    for i in range(3):
+        if pol[i][0] == pol[i][1] == pol[i][2] and pol[i][0] != '.':
+            win = pol[i][0]
+            break
+        if pol[0][i] == pol[1][i] == pol[2][i] and pol[0][i] != '.':
+            win = pol[0][i]
+            break
+    if pol[0][0] == pol[1][1] == pol[2][2] and pol[0][0] != '.':
+        win = pol[0][0]
+    if pol[0][2] == pol[1][1] == pol[2][0] and pol[0][2] != '.':
+        win = pol[0][2]
+    return win
 
 
 playingField = InputPole()
+print("Поле для игры в крестики - нолики ")
+print("Точками указаны свободные клетки")
 PrintPole(playingField)
+victory = False
+
+whoseMove = 0  # 0 - Это нолик, 1 - это крестик
+move = ['Нолик', 'Крестик']
+motion = ['o', 'x']
+winner = str()
+print("Для хода необходимо указать через пробел номер столбца и номер строки. Удачи!")
+while winner == "":
+    print('Ходит', move[whoseMove])
+    x, y = map(int, input().split())
+    playingField[y][x] = motion[whoseMove]
+    print('______________________________________')
+    PrintPole(playingField)
+    winner = СheckingWinner(playingField)
+    whoseMove = (whoseMove + 1) % 2
+print("Победил ", winner)
