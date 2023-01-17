@@ -45,13 +45,20 @@ whoseMove = 0  # 0 - Это нолик, 1 - это крестик
 move = ['Нолик', 'Крестик']
 motion = ['o', 'x']
 winner = str()
+noMoves = 0
 print("Для хода необходимо указать через пробел номер столбца и номер строки. Удачи!")
-while winner == "":
+while winner == "" and noMoves < 9:
     print('Ходит', move[whoseMove])
     x, y = map(int, input().split())
+    while playingField[y][x] == 'o' or playingField[y][x] == 'x':
+        x, y = map(int, input("Эта клетка занята, повторите ввод: ").split())
     playingField[y][x] = motion[whoseMove]
+    noMoves += 1
     print('______________________________________')
     PrintPole(playingField)
     winner = СheckingWinner(playingField)
     whoseMove = (whoseMove + 1) % 2
-print("Победил ", winner)
+if winner == "" and noMoves == 9:
+    print("Ничья")
+else:
+    print("Победил ", winner)
