@@ -4,7 +4,7 @@
 def log_data(data):  # в одну строку складываем
     time = dt.now()
     with open('log.csv', 'a') as file:
-        file.write('{}, {}'
+        file.write('{}, {} \n'
                    .format(time, data))
 
 

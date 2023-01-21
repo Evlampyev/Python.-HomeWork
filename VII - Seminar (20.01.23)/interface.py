@@ -9,6 +9,7 @@ def input_data():
 
 
 def select_action():
+    print("++++++++++++++++++++++++")
     print("0. Выход")
     print("1. Вывести весь список")
     print("2. Добавить новую запись")

@@ -7,7 +7,6 @@ import view
 def project_launch():
     s = interface.select_action()
     while s != 0:
-        # interface.html_creator()
         if s == 1:
             view.data_print()
         else:
