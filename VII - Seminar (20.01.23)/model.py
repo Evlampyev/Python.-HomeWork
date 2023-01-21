@@ -9,5 +9,5 @@ record = {
 def unification(data_list):
     data = str()
     for i in range(len(data_list)):
-        data = data + data_list[i] + ' ,' if i <= 2 else data + data_list[i]
+        data = data + data_list[i] + ', ' if i <= 2 else data + data_list[i]
     return data

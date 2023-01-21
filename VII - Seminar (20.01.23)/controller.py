@@ -5,13 +5,15 @@ import view
 
 
 def project_launch():
-    s = 2
+    s = interface.select_action()
     while s != 0:
         # interface.html_creator()
         if s == 1:
-            add_entry()
-        else:
             view.data_print()
+        else:
+            add_entry()
+        s = interface.select_action()
+
 
 
 def add_entry():

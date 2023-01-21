@@ -1,5 +1,6 @@
 def line_print(liner):
-    print(liner)
+    count = liner.find(',')
+    print('{} - запись добавлена: {}'.format(liner[count+1:], liner[:count]))
 
 
 def data_print():
