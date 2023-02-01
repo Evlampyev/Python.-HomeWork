@@ -1,0 +1,31 @@
+﻿from telegram import Bot
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from controller import solve_task
+from log import logging
+
+bot = Bot(token='5916882745:AAHDomrnWWXirqjByn6-XiztHz9nDXolK1Q')
+updater = Updater(token='5916882745:AAHDomrnWWXirqjByn6-XiztHz9nDXolK1Q')
+dispather = updater.dispatcher
+
+
+def start(update, contex):
+    contex.bot.send_message(update.effective_chat.id, 'Привет!\nПеред вами калькулятор\nВведите пример без скобок и без пробелов:')
+
+
+def input_task(update, contex):
+    task = update.message.text
+    original = task
+    rezult = solve_task(task)
+    text = original + " = " + str(rezult)
+    logging(update.effective_chat.id, text)
+    contex.bot.send_message(update.effective_chat.id, text)
+
+
+start_handler = CommandHandler('start', start)
+input_task_handler = MessageHandler(Filters.text, input_task)
+
+dispather.add_handler(start_handler)
+dispather.add_handler(input_task_handler)
+
+updater.start_polling()
+updater.idle()
