@@ -9,7 +9,7 @@ dispather = updater.dispatcher
 
 
 def start(update, contex):
-    contex.bot.send_message(update.effective_chat.id, 'Привет!\nПеред вами калькулятор\nВведите пример без скобок и без пробелов:')
+    contex.bot.send_message(update.effective_chat.id, 'Привет!\nПеред вами калькулятор\nВведите пример, без пробелов, можно со скобками:')
 
 
 def input_task(update, contex):
@@ -19,6 +19,7 @@ def input_task(update, contex):
     text = original + " = " + str(rezult)
     logging(update.effective_chat.id, text)
     contex.bot.send_message(update.effective_chat.id, text)
+    contex.bot.send_message(update.effective_chat.id,'Вводите новый пример ')
 
 
 start_handler = CommandHandler('start', start)
